@@ -1,0 +1,23 @@
+version: 2
+
+models:
+  - name: stg_stock_prices
+    description: "Cleaned and standardized stock price data."
+    columns:
+      - name: date
+        description: "The date of the stock data."
+        tests:
+          - not_null
+      - name: symbol
+        description: "The stock ticker symbol."
+        tests:
+          - not_null
+          - unique
+      - name: close_price
+        description: "The closing price of the stock."
+        tests:
+          - not_null
+      - name: volume
+        description: "The trading volume of the stock."
+        tests:
+          - not_null

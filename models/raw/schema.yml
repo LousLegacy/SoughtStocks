@@ -1,0 +1,19 @@
+version: 2
+
+models:
+  - name: raw_stock_prices
+    description: "Raw stock price data from Google Sheets."
+    columns:
+      - name: date
+        description: "The date of the stock data."
+        tests:
+          - not_null
+      - name: symbol
+        description: "The stock ticker symbol."
+        tests:
+          - not_null
+          - unique
+      - name: close_price
+        description: "The closing price of the stock."
+        tests:
+          - not_null

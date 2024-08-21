@@ -1,0 +1,30 @@
+version: 2
+
+models:
+  - name: quarterly_growth_rates
+    description: "Calculated quarterly growth rates for each stock."
+    columns:
+      - name: symbol
+        description: "The stock ticker symbol."
+        tests:
+          - not_null
+      - name: quarter
+        description: "The quarter for the growth calculation."
+        tests:
+          - not_null
+      - name: growth_rate
+        description: "The growth rate of the stock for the given quarter."
+        tests:
+          - not_null
+
+  - name: volume_price_correlation
+    description: "Correlation between volume trends and price movements."
+    columns:
+      - name: symbol
+        description: "The stock ticker symbol."
+        tests:
+          - not_null
+      - name: correlation_value
+        description: "The calculated correlation between volume and price."
+        tests:
+          - not_null
