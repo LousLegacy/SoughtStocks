@@ -1,4 +1,3 @@
--- models/raw/raw_stock_prices.sql
 SELECT
     date,
     symbol,
@@ -7,4 +6,4 @@ SELECT
     low_price AS low_price,
     open_price AS open_price,
     volume
-FROM {{ source('sp500_analysis', 'raw_stock_prices') }}
+FROM {{ source('sp500_analysis', 'stock_prices') }}

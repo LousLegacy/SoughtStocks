@@ -1,4 +1,3 @@
-# models/sources.yml
 version: 2
 
 sources:
@@ -6,5 +5,5 @@ sources:
     database: SP500_ANALYSIS
     schema: RAW_DATA
     tables:
-      - name: stock_prices
+      - name: raw_stock_prices
         description: "Raw stock price data from Google Sheets."
