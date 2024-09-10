@@ -36,3 +36,4 @@ LEFT JOIN long_term_growth_data
     ON ma_data.TICKER = long_term_growth_data.TICKER
 LEFT JOIN quarterly_growth_data
     ON ma_data.TICKER = quarterly_growth_data.TICKER
+--j
