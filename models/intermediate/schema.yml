@@ -1,0 +1,151 @@
+version: 2
+
+models:
+  - name: int_daily_returns
+    description: "Calculates the daily return for each stock based on closing prices."
+    columns:
+      - name: ticker
+        description: "The stock ticker symbol (e.g., AAPL, MSFT)."
+        tests:
+          - not_null
+          - unique
+      - name: date
+        description: "The date of the stock price."
+        tests:
+          - not_null
+      - name: daily_return
+        description: "The daily return percentage calculated as (close - previous close) / previous close."
+        tests:
+          - not_null
+
+  - name: int_monthly_returns
+    description: "Calculates the monthly return for each stock."
+    columns:
+      - name: ticker
+        description: "The stock ticker symbol."
+        tests:
+          - not_null
+          - unique
+      - name: month
+        description: "The month for which the monthly return is calculated."
+        tests:
+          - not_null
+      - name: monthly_return
+        description: "The monthly return percentage."
+        tests:
+          - not_null
+
+  - name: int_quarterly_growth
+    description: "Calculates the quarterly growth for each stock."
+    columns:
+      - name: ticker
+        description: "The stock ticker symbol."
+        tests:
+          - not_null
+          - unique
+      - name: quarter
+        description: "The quarter for which the growth is calculated."
+        tests:
+          - not_null
+      - name: quarterly_growth
+        description: "The quarterly growth percentage."
+        tests:
+          - not_null
+
+  - name: int_price_volatility
+    description: "Measures the volatility for each stock based on high and low prices."
+    columns:
+      - name: ticker
+        description: "The stock ticker symbol."
+        tests:
+          - not_null
+          - unique
+      - name: date
+        description: "The date of the price volatility measurement."
+        tests:
+          - not_null
+      - name: price_volatility
+        description: "The difference between the high and low prices of the stock on a given day."
+        tests:
+          - not_null
+
+  - name: int_moving_averages
+    description: "Calculates the 30-day and 90-day moving averages for each stock."
+    columns:
+      - name: ticker
+        description: "The stock ticker symbol."
+        tests:
+          - not_null
+          - unique
+      - name: date
+        description: "The date for the moving averages."
+        tests:
+          - not_null
+      - name: ma_30
+        description: "The 30-day moving average of the stock's closing price."
+        tests:
+          - not_null
+      - name: ma_90
+        description: "The 90-day moving average of the stock's closing price."
+        tests:
+          - not_null
+
+  - name: int_long_term_growth
+    description: "Calculates long-term growth rates for each stock."
+    columns:
+      - name: ticker
+        description: "The stock ticker symbol."
+        tests:
+          - not_null
+          - unique
+      - name: long_term_growth
+        description: "The long-term growth percentage calculated based on the first and last closing prices."
+        tests:
+          - not_null
+
+  - name: int_volume_price_corr
+    description: "Calculates the correlation between trading volume and price for each stock."
+    columns:
+      - name: ticker
+        description: "The stock ticker symbol."
+        tests:
+          - not_null
+          - unique
+      - name: volume_price_corr
+        description: "The correlation between trading volume and the stock's closing price."
+        tests:
+          - not_null
+
+  - name: int_sector_performance
+    description: "Aggregates sector-level performance metrics such as average closing price and volume."
+    columns:
+      - name: sector
+        description: "The stock sector (e.g., Technology, Energy)."
+        tests:
+          - not_null
+          - unique
+      - name: avg_close_price
+        description: "The average closing price for the sector."
+        tests:
+          - not_null
+      - name: avg_volume
+        description: "The average trading volume for the sector."
+        tests:
+          - not_null
+
+  - name: int_profitability_analysis
+    description: "Calculates the profitability of each stock based on average profit and trading volume."
+    columns:
+      - name: ticker
+        description: "The stock ticker symbol."
+        tests:
+          - not_null
+          - unique
+      - name: avg_profit
+        description: "The average profit calculated as (close - open)."
+        tests:
+          - not_null
+      - name: avg_volume
+        description: "The average trading volume for the stock."
+        tests:
+          - not_null

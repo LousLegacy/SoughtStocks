@@ -1,0 +1,30 @@
+version: 2
+
+sources:
+  - name: stock_data
+    database: STOCK_DB
+    schema: STOCK_SCHEMA
+    tables:
+      - name: stock_table
+        description: "Historical stock data, including open, high, low, close, volume, and sector information."
+        columns:
+          - name: _ROW
+            description: "Primary key for each row."
+          - name: _FIVETRAN_SYNCED
+            description: "Timestamp indicating when the data was last synced via Fivetran."
+          - name: high
+            description: "Highest price of the stock on the given date."
+          - name: low
+            description: "Lowest price of the stock on the given date."
+          - name: volume
+            description: "The volume of stocks traded on the given date."
+          - name: ticker
+            description: "Stock ticker symbol, e.g., AMZN, AAPL."
+          - name: adj_close
+            description: "Adjusted closing price, accounting for stock splits and dividends."
+          - name: close
+            description: "Closing price of the stock on the given date."
+          - name: date
+            description: "The date for the stock data."
+          - name: open
+            description: "Opening price of the stock on the given date."
