@@ -1,0 +1,102 @@
+version: 2
+
+models:
+  - name: final_sector_analysis
+    description: "Analysis of stock performance by sector, including average close price and volume."
+    columns:
+      - name: SECTOR
+        description: "The sector of the stock."
+        tests:
+          - not_null
+      - name: avg_close_price
+        description: "The average close price of stocks in the sector."
+        tests:
+          - not_null
+      - name: avg_volume
+        description: "The average trading volume of stocks in the sector."
+        tests:
+          - not_null
+
+  - name: final_stock_performance
+    description: "Comprehensive analysis of stock performance, including daily returns, price volatility, moving averages, and price momentum."
+    columns:
+      - name: TICKER
+        description: "Stock ticker symbol."
+        tests:
+          - not_null
+          - unique
+      - name: DATE
+        description: "Date of the stock performance data."
+        tests:
+          - not_null
+      - name: daily_return
+        description: "Daily return of the stock."
+      - name: price_volatility
+        description: "The volatility of the stock's price."
+      - name: ma_30
+        description: "30-day moving average of the stock price."
+      - name: ma_90
+        description: "90-day moving average of the stock price."
+      - name: momentum_5_days
+        description: "5-day price momentum of the stock."
+      - name: momentum_20_days
+        description: "20-day price momentum of the stock."
+
+  - name: final_stock_profitability
+    description: "Analysis of stock profitability and performance based on monthly returns, average profit, and trading volume."
+    columns:
+      - name: TICKER
+        description: "Stock ticker symbol."
+        tests:
+          - not_null
+          - unique
+      - name: month
+        description: "Month of the stock performance data."
+        tests:
+          - not_null
+      - name: monthly_return
+        description: "Monthly return of the stock."
+      - name: avg_profit
+        description: "Average profit of the stock."
+      - name: avg_volume
+        description: "Average trading volume of the stock."
+
+  - name: final_stock_risk_analysis
+    description: "Risk analysis of stocks, including price volatility and volume-price correlation."
+    columns:
+      - name: TICKER
+        description: "Stock ticker symbol."
+        tests:
+          - not_null
+          - unique
+      - name: DATE
+        description: "Date of the risk analysis data."
+        tests:
+          - not_null
+      - name: price_volatility
+        description: "The volatility of the stock's price."
+      - name: volume_price_corr
+        description: "The correlation between trading volume and the stock's price."
+
+  - name: final_trend_analysis
+    description: "Analysis of stock trends based on moving averages, long-term growth, and quarterly growth."
+    columns:
+      - name: TICKER
+        description: "Stock ticker symbol."
+        tests:
+          - not_null
+          - unique
+      - name: DATE
+        description: "Date of the trend analysis data."
+        tests:
+          - not_null
+      - name: ma_30
+        description: "30-day moving average of the stock price."
+      - name: ma_90
+        description: "90-day moving average of the stock price."
+      - name: long_term_growth
+        description: "Long-term growth of the stock."
+      - name: quarter
+        description: "Quarter of the stock performance data."
+      - name: quarterly_growth
+        description: "Quarterly growth of the stock."

@@ -1,21 +1,41 @@
-
 version: 2
 
 models:
-    - name: my_first_dbt_model
-      description: "A starter dbt model"
-      columns:
-          - name: id
-            description: "The primary key for this table"
-            tests:
-                - unique
-                - not_null
+  - name: stg_sector_mapping
+    description: "Staging table for mapping stock tickers to their respective sectors."
+    columns:
+      - name: TICKER
+        description: "Stock ticker symbol."
+        tests:
+          - not_null
+          - unique
+      - name: SECTOR
+        description: "Sector to which the stock belongs."
+        tests:
+          - not_null
 
-    - name: my_second_dbt_model
-      description: "A starter dbt model"
-      columns:
-          - name: id
-            description: "The primary key for this table"
-            tests:
-                - unique
-                - not_null
+  - name: stg_stock_prices
+    description: "Staging table for daily stock price data including open, close, high, low, adjusted close, and volume."
+    columns:
+      - name: row_id
+        description: "Unique identifier for each row of stock price data."
+      - name: TICKER
+        description: "Stock ticker symbol."
+        tests:
+          - not_null
+      - name: DATE
+        description: "Date of the stock data."
+        tests:
+          - not_null
+      - name: OPEN
+        description: "Opening price of the stock."
+      - name: HIGH
+        description: "Highest price of the stock during the day."
+      - name: LOW
+        description: "Lowest price of the stock during the day."
+      - name: CLOSE
+        description: "Closing price of the stock at the end of the trading day."
+      - name: ADJ_CLOSE
+        description: "Adjusted closing price after stock splits and dividends."
+      - name: VOLUME
+        description: "Total number of shares traded during the day."
